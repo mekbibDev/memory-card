@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Cards from "./Cards";
 const url = "https://rickandmortyapi.com/api/character/?status=dead";
 export default function App() {
   const [characters, setCharacters] = useState([]);
@@ -10,5 +11,11 @@ export default function App() {
         setCharacters(response.results);
       });
   }, []);
-  return <></>;
+  if (characters.length !== 0)
+    return (
+      <>
+        <Cards characters={characters}></Cards>
+      </>
+    );
+  else return <></>;
 }
