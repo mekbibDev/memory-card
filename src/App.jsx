@@ -19,7 +19,7 @@ export default function App() {
     fetch(url)
       .then((response) => response.json())
       .then((response) => {
-        setCharacters(response.results);
+        setCharacters(response.results.slice(0,14));
       });
   }, []);
 
@@ -62,10 +62,15 @@ export default function App() {
     return (
       <>
         <header>
-        <h1>Rick & Morty Memorial</h1>
-        <h1>Score:{score}</h1>
-        <h1>Best Score: {bestScore}</h1>
-        <h1>{gameStatus}</h1>
+          <div>
+            <h1>Rick & Morty Memorial</h1>
+            <div>
+              <h1>Score:{score}</h1>
+              <h1>Best Score: {bestScore}</h1>
+            </div>
+          </div>
+
+          <h1>{gameStatus}</h1>
         </header>
         <Cards
           characters={characters}
