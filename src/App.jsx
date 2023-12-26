@@ -3,6 +3,9 @@ import Cards from "./Cards";
 const url = "https://rickandmortyapi.com/api/character/?status=dead";
 export default function App() {
   const [characters, setCharacters] = useState([]);
+  const [pickedCards, setPickedCards] = useState([]);
+  const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
 
   useEffect(() => {
     fetch(url)
@@ -12,21 +15,43 @@ export default function App() {
       });
   }, []);
 
-  function randomizeCharacters(){
+  function randomizeCharacters() {
     const charactersRandomized = Array(characters.length).fill(null);
-    const charactersCopy = [...characters]
-    while(charactersCopy.length !== 0){
-      const index = Math.floor(Math.random() * characters.length)
-      if(charactersRandomized[index] === null)
-      charactersRandomized[index] = charactersCopy.pop();
+    const charactersCopy = [...characters];
+    while (charactersCopy.length !== 0) {
+      const index = Math.floor(Math.random() * characters.length);
+      if (charactersRandomized[index] === null)
+        charactersRandomized[index] = charactersCopy.pop();
     }
-    setCharacters(charactersRandomized)
+    setCharacters(charactersRandomized);
   }
+  function handleCardClick(e) {
+    randomizeCharacters();
+    const updatedPicked = pickedCards.includes(
+      e.target.getAttribute("data-characterid"),
+    )
+      ? []
+      : [...pickedCards, e.target.getAttribute("data-characterid")];
+    const newScore = pickedCards.includes(
+      e.target.getAttribute("data-characterid"),
+    )
+      ? 0
+      : score + 1;
+    const newBestScore = newScore > bestScore ? newScore : bestScore;
 
+    setPickedCards(updatedPicked);
+    setScore(newScore);
+    setBestScore(newBestScore);
+  }
   if (characters.length !== 0)
     return (
       <>
-        <Cards characters={characters} randomizeCharacters = {randomizeCharacters}></Cards>
+        <h1>Score:{score}</h1>
+        <h1>Best Score: {bestScore}</h1>
+        <Cards
+          characters={characters}
+          handleCardClick={handleCardClick}
+        ></Cards>
       </>
     );
   else return <></>;

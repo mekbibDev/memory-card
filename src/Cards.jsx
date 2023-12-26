@@ -1,6 +1,6 @@
 import Card from "./Card";
 
-export default function Cards({ characters, randomizeCharacters }) {
+export default function Cards({ characters, handleCardClick }) {
   return (
     <main>
       {characters.map((character) => (
@@ -8,7 +8,8 @@ export default function Cards({ characters, randomizeCharacters }) {
           key={character.id}
           name={character.name}
           imgUrl={character.image}
-          randomizeCharacters = {randomizeCharacters}
+          characterId={character.id}
+          handleCardClick = {handleCardClick}
         ></Card>
       ))}
     </main>

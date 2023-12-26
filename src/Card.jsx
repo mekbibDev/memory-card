@@ -1,9 +1,9 @@
-export default function Card({ name, imgUrl, randomizeCharacters }) {
+export default function Card({ name, imgUrl, characterId,handleCardClick, }) {
   return (
-    <div onClick={randomizeCharacters}>
-      <img src={imgUrl} alt="name" />
-      <h1>{name}</h1>
-      <button onClick={randomizeCharacters}>pick</button>
+    <div onClick={handleCardClick} >
+      <img src={imgUrl} alt="name" data-characterid={characterId}/>
+      <h1 data-characterid={characterId}>{name}</h1>
+      <button onClick={handleCardClick} data-characterid ={characterId} >pick</button>
     </div>
   );
 }
