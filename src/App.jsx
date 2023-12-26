@@ -61,9 +61,12 @@ export default function App() {
   if (characters.length !== 0)
     return (
       <>
+        <header>
+        <h1>Rick & Morty Memorial</h1>
         <h1>Score:{score}</h1>
         <h1>Best Score: {bestScore}</h1>
-        <h2>{gameStatus}</h2>
+        <h1>{gameStatus}</h1>
+        </header>
         <Cards
           characters={characters}
           handleCardClick={handleCardClick}
