@@ -1,6 +1,6 @@
-export default function Card({name,imgUrl}){
+export default function Card({name,imgUrl,randomizeCharacters}){
   return (
-    <div>
+    <div onClick={randomizeCharacters}>
       <img src={imgUrl} alt="name"/>
       <h1>{name}</h1>
     </div>
