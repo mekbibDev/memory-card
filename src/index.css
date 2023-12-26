@@ -1,9 +1,16 @@
+@font-face {
+  font-family: WubbaLubbaDubDub;
+  src: url("./assets/WubbaLubbaDubDub.ttf");
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+body {
+  font-family: WubbaLubbaDubDub, sans-serif;
+}
 header {
   padding: 20px 0;
   display: flex;
@@ -31,4 +38,9 @@ main > div {
   display: flex;
   flex-direction: column;
   max-width: 180px;
+}
+
+button {
+  font-family: WubbaLubbaDubDub;
+  font-size: 1.5rem;
 }
