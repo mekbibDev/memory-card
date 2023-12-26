@@ -41,13 +41,15 @@ main {
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  color: white;
+
 }
 
 main > div {
   display: flex;
   flex-direction: column;
   max-width: 180px;
+  color: lime;
+  text-align: center;
 }
 main > div:hover {
  box-shadow:  1px 1px 20px cyan;
