@@ -1,6 +1,6 @@
 @font-face {
   font-family: WubbaLubbaDubDub;
-  src: url("./assets/WubbaLubbaDubDub.ttf");
+  src: url("../assets/WubbaLubbaDubDub.ttf");
 }
 * {
   margin: 0;
@@ -10,7 +10,7 @@
 
 body {
   font-family: WubbaLubbaDubDub, sans-serif;
-  background: url("./assets/space.jpg");
+  background: url("../assets/space.jpg");
 }
 body > div {
   display: flex;
@@ -22,7 +22,7 @@ header {
   display: flex;
   flex-direction: column;
   row-gap: 20px;
-  background-image: url("./assets/portal.jpg");
+  background-image: url("../assets/portal.jpg");
   background-position: center;
   background-size: contain;
 }
